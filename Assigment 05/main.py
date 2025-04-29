@@ -1,5 +1,16 @@
-import streamlit as stt
+import streamlit as st
+from cryptography.fernet import Fernet
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+from cryptography.hazmat.primitives import hashes
+from base64 import urlsafe_b64encode
 import os
+import sys
+print(sys.path)
+try:
+    from cryptography.fernet import Fernet
+    print("Fernet is available!")
+except ImportError as e:
+    print("Fernet not found:", e)
 
 # Page config
 st.set_page_config(page_title="🔐 SecureVault", layout="centered")
